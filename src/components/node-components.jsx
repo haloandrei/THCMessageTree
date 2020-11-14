@@ -40,7 +40,7 @@ export default class MessageNode extends React.Component{
         this.setState({messages : this.state.messages.concat([{
                 id: newId,
                 type: 'messageType',
-                data: {label: this.state.newMessageName, user: {name: 'Onita Andrei'}},
+                data: {label: this.state.newMessageName, user: {name: 'Onita Andrei, ', time: '5:33'}},
                 position: {x:6,y:30} //{x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight}
             },{
                 id: 'e'+this.state.currentMessageId + '-' + newId,

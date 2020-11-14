@@ -20,6 +20,7 @@ export default memo(({ data }) => {
             />
             <div style ={ {fontSize: '7px', top: '-10', left: '-10'}}>
                 <strong>{data.user.name}</strong>
+                <strong>{data.user.time}</strong>
             </div>
             <hr style={{marginTop: '-2px', marginRight:'-10px', border:'0px'}}/>
             <div style={{fontSize: '12px',paddingLeft: '10px'}}>

@@ -1,4 +1,4 @@
-import MessageNode from './components/node-components'
+import MessageNode from './components/node-components';
 import './App.css';
 import React from "react";
 
