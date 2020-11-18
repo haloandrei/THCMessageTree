@@ -58,10 +58,60 @@ export default class MessageNode extends React.Component{
     onConnect = (params) => this.setState({messages : addEdge(params,this.state.messages)});
     //onConnect(params) { this.setState({messages : addEdge(params,this.state.messages)})} this creates it s own "this", use bind if you REALLY WANT TO HAVE FUNCTIONS
 
+    refreshMessages = () => {
+        const interval = setInterval(() => {
+            this.setState({
+                messages : [{id:'1', type: 'input', data:{label:'Group Chat'}, position: {x:0,y:0}},
+                    {id:'2', type: 'messageType', data:{label:'tonight on bottom gear', user: {name: 'Jeremy Clarkson', time: '4:20'}}, position: {x:5,y:5}},
+                    {
+                        id: 'e'+ '2' + '-' + 1,
+                        source: '2',
+                        target: '1',
+                        animated: true,
+                        style: { stroke: '#000000' },
+                    },
+                    {id:'3', type: 'messageType', data:{label:'i watch initial d', user: {name: 'Jeremy Clarkson', time: '4:21'}}, position: {x:100,y:100}},
+                    {
+                        id: 'e'+ '3' + '-' + '1',
+                        source: '3',
+                        target: '1',
+                        animated: true,
+                        style: { stroke: '#000000' },
+                    },
+                    {id:'4', type: 'messageType', data:{label:'richard verbally defeats a local karen', user: {name: 'Jeremy Clarkson', time: '4:21'}}, position: {x:100,y:-100}},
+                    {
+                        id: 'e'+ '4' + '-' + '1',
+                        source: '4',
+                        target: '1',
+                        animated: true,
+                        style: { stroke: '#000000' },
+                    },
+                    {id:'5', type: 'messageType', data:{label:'and james builds an 1950 Volkswagen engine out of cheese', user: {name: 'Jeremy Clarkson', time: '4:21'}}, position: {x:-100,y:100}},
+                    {
+                        id: 'e'+ '5' + '-' + '1',
+                        source: '5',
+                        target: '1',
+                        animated: true,
+                        style: { stroke: '#000000' },
+                    },
+                    {id:'6', type: 'messageType', data:{label:'*intro music*', user: {name: 'Jeremy Clarkson', time: '4:21'}}, position: {x:-100,y:-100}},
+                    {
+                        id: 'e'+ '6' + '-' + '1',
+                        source: '6',
+                        target: '1',
+                        animated: true,
+                        style: { stroke: '#000000' },
+                    },
+                ]
+            })
+    }, 2000)
+}
+
     render() {
         return(
             <Fragment>
             <ReactFlow
+
                 elements={this.state.messages}
                 onLoad={this.onLoad}
                 style = {{width: '100%', height: '90vh', background: this.bgColor}}
@@ -98,6 +148,7 @@ export default class MessageNode extends React.Component{
                         onClick={() => this.addNode()}
                     >Add message</button>
                 </div>
+                {this.refreshMessages()}
         </Fragment>
         )
         }
